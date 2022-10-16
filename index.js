@@ -40,13 +40,17 @@ async function run() {
         app.get('/products/:id', async (req, res) => {
             const id = req.params.id;
             const query = { _id: ObjectId(id) };
+            const result = await userCollection.findOne(query)
+            res.send(result);
+        })
+        app.get('/users/:id', async (req, res) => {
+            const id = req.params.id;
+            const query = { _id: ObjectId(id) };
             const result = await productCollection.findOne(query)
             res.send(result);
         })
 
-        // const user = { name: "Mithila", email: "jfmithila114@gmail.com" }
-        // const result = await productCollection.insertOne(user);
-        // console.log('User inserted with id : ', insertedId);
+
     }
     finally {
         // await client.close();
