@@ -18,6 +18,7 @@ async function run() {
     try {
         await client.connect();
         const productCollection = client.db("ProductCollection").collection("products");
+        const userCollection = client.db("userCollection").collection("users");
 
         // app.get('/products', (req, res) => {
         //     const query = {};
@@ -28,6 +29,11 @@ async function run() {
         app.get('/products', async (req, res) => {
             const query = {};
             const result = await productCollection.find(query).toArray();
+            res.send(result);
+        })
+        app.get('/users', async (req, res) => {
+            const query = {};
+            const result = await userCollection.find(query).toArray();
             res.send(result);
         })
 
