@@ -60,7 +60,7 @@ async function run() {
 run().catch(console.dir)
 
 app.get('/', (req, res) => {
-    res.send('hello odour hello hello!!')
+    res.send('hello odour!!')
 })
 
 // app.get('/user/:id', (req, res) => {
